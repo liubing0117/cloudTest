@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    IP:<input type="text"><br />
+    硬盘：<input type="text">
+    <input type="text">
+    <input type="button" value="test" id="submit">
+</body>
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script>
+        var flag = true;
+        $("#submit").on("click",function () {
+            //window.location.href="http://120.52.42.104:3000/dashboard/db/disk?panelId=3&fullscreen&edit&from=now-90d&to=now&editorTab=Metrics";
+            if(flag){
+                var newFrame = document.createElement("iframe");
+                newFrame.id = "newFrame";
+                newFrame.width = "100%";
+                newFrame.height = "700px";
+                newFrame.src = "http://120.52.42.104:3000/dashboard/db/disk?panelId=3&fullscreen&edit&from=now-90d&to=now&editorTab=Metrics";
+                document.body.appendChild(newFrame);
+                flag = false;
+            }else{
+                console.log($('#newFrame'));
+                $('#newFrame').window.location.reload();
+            }
+        });
+    </script>
+</html>
